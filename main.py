@@ -19,7 +19,7 @@ model = genai.GenerativeModel(
   generation_config=generation_config,
 )
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def root():
     data = request.json
     user_input = data.get('txt', '')
