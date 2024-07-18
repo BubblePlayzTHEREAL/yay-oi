@@ -25,9 +25,11 @@ def root():
     user_input = data.get('txt')
     
     chat_session = model.start_chat(history=[])
-    response = chat_session.send_message(user_input)
-    
-    return response.text
+    try:
+        response = chat_session.send_message(user_input)
+        return response.text
+    except:
+        return "Let's not talk about that."
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
