@@ -21,7 +21,8 @@ model = genai.GenerativeModel(
 
 @app.route('/', methods=['POST','GET'])
 def root():
-    user_input = request.args.get('txt')
+    data = request.get_json()
+    user_input = data.get('txt')
     
     chat_session = model.start_chat(history=[])
     response = chat_session.send_message(user_input)
