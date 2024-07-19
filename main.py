@@ -34,7 +34,8 @@ def root():
     try:
         response = chat_session.send_message(user_input)
         return response.text
-    except:
+    except with Exception as e:
+        print(e)
         return "Let's not talk about that."
 
 if __name__ == '__main__':
